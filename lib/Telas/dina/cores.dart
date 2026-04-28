@@ -9,6 +9,8 @@ class cores extends StatefulWidget {
 
 class _coresState extends State<cores> {
 
+  Color Core = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +22,7 @@ class _coresState extends State<cores> {
           gradient: LinearGradient(
             colors: [
               Colors.white,
-              Colors.black,
+              Core,
             ],
             begin:Alignment.bottomLeft,
             end:Alignment.bottomRight,
@@ -30,6 +32,64 @@ class _coresState extends State<cores> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
+              ElevatedButton(onPressed: () {
+                setState(() {
+                  Core = Colors.black;
+                });
+              },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                  ),
+                  child: Text("Padrão")
+              ),
+
+              SizedBox(height: 10,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(onPressed: () {
+                    setState(() {
+                      Core = Colors.red;
+                    });
+                  },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text("Vermelho"),
+                  ),
+
+                  SizedBox(width: 10,),
+
+                  ElevatedButton(onPressed: () {
+                    setState(() {
+                      Core = Colors.green;
+                    });
+                  },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text("Verde"),
+                  ),
+
+                  SizedBox(width: 10,),
+
+                  ElevatedButton(onPressed: () {
+                    setState(() {
+                      Core = Colors.orange;
+                    });
+                  },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text("Laranja"),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 10,),
+
               ElevatedButton(onPressed: () {
                 Navigator.pop(context);
               },
