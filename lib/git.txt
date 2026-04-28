@@ -1,5 +1,0 @@
-//git config user.name "Guilherme-Cerqueira-TGPSI"
-//git config user.email "a22404@eshm.edu.pt"
-
-//git config user.name "RedFoxStudio-dev"
-//git config user.email "email2@gmail.com"

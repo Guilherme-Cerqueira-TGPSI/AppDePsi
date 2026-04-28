@@ -1,7 +1,5 @@
+/*
 import 'package:flutter/material.dart';
-import 'package:psi/Android.dart';
-import 'package:psi/Web.dart';
-import 'package:psi/Linux.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -98,4 +96,4 @@ class _MyHomePageState extends State<MyHomePage> {
       //),
     );
   }
-}
+}*/

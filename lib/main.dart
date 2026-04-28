@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:psi/Android.dart';
-import 'package:psi/Web.dart';
-import 'package:psi/Linux.dart';
+import 'package:psi/Telas/TelaDispositivos.dart';
+import 'package:psi/Telas/Listas/ListaJogos.dart';
+import 'package:psi/Telas/Listas/ListaProjetos.dart';
+import 'package:psi/Telas/dinamicas.dart';
 
 void main() {
   runApp(const MyApp());
@@ -68,52 +69,68 @@ class Principal extends StatelessWidget {
               child: Image.asset("assets/images/logo.png"),
             ),
 
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => Segundo()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.white,
-              ),
-              child: const Text("Ir para a tela Android"),
+            ElevatedButton(onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(
+                  builder:(_) => TelaDispositivos()
+                ),
+              );
+            },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.black,
+                ),
+                child: Text("Ir para Menu de Dispositivos")
             ),
 
-            SizedBox(height: 10),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (_) => Terceiro()
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.white,
-              ),
-              child: const Text("Ir para a tela Web"),
-            ),
-
-            SizedBox(height: 10),
+            SizedBox(height: 10,),
 
             ElevatedButton(onPressed: () {
               Navigator.push(context,
                 MaterialPageRoute(
-                    builder: (_) => Quarto()
-              ),
+                    builder: (_) => Listajogos()
+                ),
               );
             },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
                 foregroundColor: Colors.white,
+                backgroundColor: Colors.black,
               ),
-              child: Text("Ir para a Tela Linux"),
+              child: Text("Ir para lista de Jogos"),
             ),
-            SizedBox(height: 100,),
+
+            SizedBox(height: 10,),
+
+            ElevatedButton(onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(
+                    builder: (_) => ListaProjetos()
+                ),
+              );
+            },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.black,
+              ),
+                child: Text("Ir para lista de Projetos"),
+            ),
+
+            SizedBox(height: 10,),
+
+            ElevatedButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => dinamicas(),
+                ),
+              );
+            },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.black,
+              ),
+              child: Text("Ir para Funções Dinamicas"),
+            ),
+
+            SizedBox(height: 80,),
+
           ],
         ),
         ),
