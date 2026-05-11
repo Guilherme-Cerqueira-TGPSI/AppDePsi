@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "109711596453",
+    "project_id": "app-psi-b140d",
+    "storage_bucket": "app-psi-b140d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109711596453:android:c5e27551bac882d4a0e64c",
+        "android_client_info": {
+          "package_name": "com.example.psi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnlp3knVzC9tOiM_Ha1PTOiDdN94dCw0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

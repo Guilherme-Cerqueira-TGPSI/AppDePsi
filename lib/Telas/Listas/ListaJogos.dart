@@ -1,6 +1,6 @@
   import 'package:flutter/material.dart';
-  import 'package:psi/Class/Jogos.dart';
   import 'package:psi/Data/JogosData.dart';
+  import 'package:shared_preferences/shared_preferences.dart';
 
   class Listajogos extends StatefulWidget {
     const Listajogos({super.key});
@@ -12,24 +12,68 @@
   class _ListajogosState extends State<Listajogos> {
 
     @override
+    void initState() {
+      super.initState();
+      carregarNotas();
+    }
+
+    Future<void> guardarNota(int index) async {
+      final prefs = await SharedPreferences.getInstance();
+
+      final jogo = Jogosdata.JData[index];
+
+      await prefs.setDouble(
+          'user_nota_${jogo.nome}',
+          jogo.nota
+      );
+
+    }
+
+    Future<void> carregarNotas() async {
+      final prefs = await SharedPreferences.getInstance();
+
+      for(var jogo in Jogosdata.JData) {
+        final nota = prefs.getDouble("user_nota_${jogo.nome}");
+
+        if (nota != null) {
+          jogo.nota = nota;
+        }
+      }
+      setState(() {
+
+      });
+
+    }
+
+    @override
     Widget build(BuildContext context) {
 
-      void _mais (int index)
+      void _mais (int index) async
       {
         setState(() {
           if(Jogosdata.JData[index].nota < 10.0){
             Jogosdata.JData[index].nota += 0.5;
           }
         });
+        await guardarNota(index);
       }
 
-      void _menos (int index)
+      void _menos (int index) async
       {
         setState(() {
           if(Jogosdata.JData[index].nota > 0.0){
             Jogosdata.JData[index].nota -= 0.5;
           }
         });
+        await guardarNota(index);
+      }
+
+      void _reset (int index) async
+      {
+        setState(() {
+          Jogosdata.JData[index].nota = 5.0;
+        });
+        await guardarNota(index);
       }
 
       return Scaffold(
@@ -87,7 +131,7 @@
                       ),
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.grey[900],
+                        color: jogo.core,
                         borderRadius: BorderRadius.circular(12),
 
                         boxShadow: [
@@ -161,6 +205,58 @@
                                         _mais(index);
                                       },
                                       icon: Icon(Icons.add_circle_outline),
+                                    ),
+
+                                    IconButton(onPressed: () {
+                                      _reset(index);
+                                    },
+                                      icon: Icon(Icons.restart_alt_outlined),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+
+                                    SizedBox(width: 35,),
+
+                                    ElevatedButton(onPressed: () {
+                                      setState(() {
+                                        jogo.Verde();
+                                      });
+                                    },
+                                      style: ElevatedButton.styleFrom(
+                                        foregroundColor: Colors.white,
+                                        backgroundColor: Colors.green,
+                                      ),
+                                      child: Text("Verde"),
+                                    ),
+
+                                    SizedBox(width: 7,),
+
+                                    ElevatedButton(onPressed: () {
+                                      setState(() {
+                                        jogo.Preto();
+                                      });;
+                                    },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.black,
+                                        foregroundColor: Colors.white,
+                                      ),
+                                      child: Text("Preto"),
+                                    ),
+
+                                    SizedBox(width: 7,),
+
+                                    ElevatedButton(onPressed: () {
+                                      setState(() {
+                                        jogo.Vermelho();
+                                      });
+                                    },
+                                      style: ElevatedButton.styleFrom(
+                                        foregroundColor: Colors.white,
+                                        backgroundColor: Colors.red,
+                                      ),
+                                      child: Text("Vermelho"),
                                     ),
                                   ],
                                 ),

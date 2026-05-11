@@ -10,6 +10,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2023,
       Pontuacao: 7.0,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -18,6 +19,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2017,
       Pontuacao: 5.7,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -26,6 +28,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2009,
       Pontuacao: 9.3,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -34,6 +37,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2013,
       Pontuacao: 9.4,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -42,6 +46,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2017,
       Pontuacao: 6.0,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -50,6 +55,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2018,
       Pontuacao: 8.4,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -58,6 +64,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2014,
       Pontuacao: 8.6,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -66,6 +73,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2020,
       Pontuacao: 7.3,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
 
     Jogos(
@@ -74,6 +82,7 @@ class Jogosdata extends ChangeNotifier {
       Ano: 2014,
       Pontuacao: 7.4,
       nota: 5.0,
+      core: Colors.grey.shade900,
     ),
   ];
 }
