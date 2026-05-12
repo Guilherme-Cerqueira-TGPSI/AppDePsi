@@ -1,6 +1,8 @@
   import 'package:flutter/material.dart';
   import 'package:psi/Data/JogosData.dart';
   import 'package:shared_preferences/shared_preferences.dart';
+  import 'package:motion/motion.dart';
+
 
   class Listajogos extends StatefulWidget {
     const Listajogos({super.key});
@@ -124,7 +126,11 @@
                   itemBuilder: (context, index) {
                     final jogo = Jogosdata.JData[index];
 
-                    return Container(
+                    return Motion.elevated(
+                      elevation: 100,
+                      borderRadius: BorderRadius.circular(20),
+
+                        child: Container(
                       margin: const EdgeInsets.symmetric(
                         horizontal: 12,
                         vertical: 6,
@@ -265,6 +271,7 @@
                           ),
                         ],
                       ),
+                    ),
                     );
                   },
                 ),

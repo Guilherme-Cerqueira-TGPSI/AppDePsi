@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:animations/animations.dart';
+import 'package:motion/motion.dart';
 
 import 'package:psi/Telas/TelaDispositivos.dart';
 import 'package:psi/Telas/Listas/ListaJogos.dart';
@@ -12,6 +13,9 @@ import 'package:psi/Telas/dinamicas.dart';
 Future<void> main() async{
   runApp(const MyApp());
 
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Motion.instance.initialize();
 }
 
 class SplashScreenPage extends StatelessWidget {
