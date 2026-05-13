@@ -1,8 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:splashscreen/splashscreen.dart';
-import 'package:animations/animations.dart';
+import 'package:psi/Telas/login.dart';
+import 'package:psi/firebase_options.dart';
+
 import 'package:motion/motion.dart';
 
 import 'package:psi/Telas/TelaDispositivos.dart';
@@ -16,6 +18,10 @@ Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
   await Motion.instance.initialize();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class SplashScreenPage extends StatelessWidget {
@@ -23,7 +29,7 @@ class SplashScreenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const Principal()),
@@ -218,6 +224,15 @@ class Principal extends StatelessWidget {
 
             SizedBox(height: 80,),
 
+            ElevatedButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => Login(),),);
+            },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.white,
+              ),
+              child: Text("Login"),
+            ),
           ],
         ),
         ),
